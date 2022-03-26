@@ -25,14 +25,19 @@
     <title><?php echo $title ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/estilo.css">
+
 </head>
 
 
 <body>
 
     <div class="container-fluid">
-
+<br>
+<h3>Insira o estado</h3><hr>
         <form method="post" action="acaoEst.php">
+        <div class="form-group col-lg-3">
+
         <label>ID</label>
                     <input readonly  type="text" name="estId" id="estId" class="form-control" value="<?php if ($acao == "editar") echo $dados['estId']; else echo 0; ?>"><br>
 
@@ -40,12 +45,13 @@
                     <input name="estNome" id="estNome" type="text" required="true" class="form-control" value="<?php if ($acao == "editar") echo $dados['estNome']; ?>" placeholder="Digite o estado"><br>
                 
         <label>Sigla do Estado </label>
-                    <input name="estSigla" id="estSigla" type="text" required="true" class="form-control" value="<?php if ($acao == "editar") echo $dados['estSigla']; ?>" placeholder="Digite o estado"><br>
+                    <input name="estSigla" id="estSigla" type="text" required="true" class="form-control" value="<?php if ($acao == "editar") echo $dados['estSigla']; ?>" placeholder="Digite o estado"
+                    maxlength="2" minlength="2"><br>
           
         
-<br><br>
 
-    <button name="acao" value="salvar" id="acao" type="submit" class="btn btn-info">
+
+    <button name="acao" value="salvar" id="acao" type="submit" class="btn btn-outline-secondary">
                      Adicionar 
                 </button>
 

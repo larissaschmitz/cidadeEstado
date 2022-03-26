@@ -14,6 +14,8 @@
     <title> <?php echo $title; ?> </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="shortcut icon" href="img\favicon.ico">
+    <link rel="stylesheet" href="css/estilo.css">
+
     
     <script>
         function excluirRegistro(url){
@@ -26,24 +28,34 @@
 </head>
 <body>
 
+    
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <div class="container-fluid">
-    <navbar>
-    <a class="navbar-brand" href="cadastroCid.php">CadastroCid</a>
-    <a class="navbar-brand" href="indexCid.php">consulta cid</a>
+        <a class="navbar-brand" href="#">Cidades</a>
 
-    <a class="navbar-brand" href="indexEst.php">Consulta estado</a>
-    <a class="navbar-brand" href="cadastroEst.php">Cadastro do estado</a>
+        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="cadastroCid.php">Cadastrar cidade</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="indexEst.php">Estados</a>
+            </li>
+            <ul>
+        </div>
+        </div>
+    </nav>
 
-
-    </navbar>
-
+    <div class="container-fluid">
+<br><br><br>
     <form method="post">
 
                     <div class="form-group col-lg-3">
                     <h3>Procurar Cidade</h3>
                     <input type="text" name="procurar" id="procurar" size="50" class="form-control" placeholder="Insira o que deseja consultar"
                 value="<?php echo $procurar;?>"> <br>
-                <button name="acao" id="acao" type="submit"  class="btn btn-info">Procurar</button>
+                <button name="acao" id="acao" type="submit"  class="btn btn-outline-info">Procurar</button>
 
                 <br><br>
 
@@ -103,6 +115,7 @@
     </table>
     </fieldset>
     </form>
+    
             </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
