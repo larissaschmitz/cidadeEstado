@@ -3,7 +3,7 @@
     define('HOST', 'localhost');  
     define('DBNAME', 'aula');    
     define('USER', 'root');  
-    define('PASSWORD', '*Fada030648');
+    define('PASSWORD', '');
 
     define('DRIVER', 'mysql'); 
     define('CHARSET', 'utf8');
