@@ -28,6 +28,14 @@
             
         }
         
+
+        function excluir($estId){
+            $pdo = Conexao::getInstance();
+            $stmt = $pdo ->prepare('DELETE FROM estado WHERE estId = :estId');
+            $stmt->bindParam(':estId', $estId);
+            
+            return $stmt->execute();
+        }
       
     }
 

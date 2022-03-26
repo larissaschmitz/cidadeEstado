@@ -7,8 +7,15 @@
     $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
     if ($acao == "excluir"){
         $cidId = isset($_GET['cidId']) ? $_GET['cidId'] : 0;
-        excluir($cidId);
+        require_once ("classes/Cidade.class.php");
+        $cidade = new Cidade("", "", "");
+        $resultado = $cidade->excluir($cidId);
+        header("location:indexCid.php");
     }
+
+  
+    
+    
     
 
    
@@ -21,15 +28,7 @@
             $cidade = new Cidade("", $_POST['cidNome'], $_POST['estado_estId']);
             
             $resultado = $cidade->inserir();
-            
-            
-            //verificar resultado e apresentar para o usuario
-            if ($resultado){
-
-                header("location:indexCid.php");
-            } else {
-                echo "Não funcionou";
-            }
+            header("location:indexCid.php");
         }
         else
             editar($cidId);
@@ -54,16 +53,6 @@
         header("location:indexCid.php");
     }
 
-
-
-//Excluir dados
-    function excluir($cidId){
-        $pdo = Conexao::getInstance();
-        $stmt = $pdo ->prepare('DELETE FROM cidade WHERE cidId = :cidId');
-        $stmt->bindParam(':cidId', $cidId);
-        $stmt->execute();
-        header('location:indexCid.php');
-    }
 
 //Consultar dados
     function buscarDados($cidId){

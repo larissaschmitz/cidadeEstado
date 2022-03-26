@@ -7,7 +7,10 @@
     $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
     if ($acao == "excluir"){
         $estId = isset($_GET['estId']) ? $_GET['estId'] : 0;
-        excluir($estId);
+        require_once ("classes/Estado.class.php");
+        $estado = new Estado("", "", "");
+        $resultado = $estado->excluir($estId);
+            header("location:indexEst.php");
     }
     
 
@@ -21,15 +24,7 @@
             $estado = new Estado("", $_POST['estNome'], $_POST['estSigla']);
             
             $resultado = $estado->inserir();
-            
-            
-            //verificar resultado e apresentar para o usuario
-            if ($resultado){
-
-                header("location:indexEst.php");
-            } else {
-                echo "Não funcionou";
-            }
+            header("location:indexEst.php");
         }
         else
             editar($estId);
@@ -53,17 +48,7 @@
         $stmt->execute();
         header("location:indexEst.php");
     }
-
-
-
-//Excluir dados
-    function excluir($estId){
-        $pdo = Conexao::getInstance();
-        $stmt = $pdo ->prepare('DELETE FROM estado WHERE estId = :estId');
-        $stmt->bindParam(':estId', $estId);
-        $stmt->execute();
-        header('location:indexEst.php');
-    }
+    
 
 //Consultar dados
     function buscarDados($estId){

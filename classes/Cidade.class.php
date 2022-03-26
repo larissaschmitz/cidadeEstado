@@ -26,7 +26,14 @@
             return $stmt->execute();
             
         }
-        
+
+        function excluir($cidId){
+            $pdo = Conexao::getInstance();
+            $stmt = $pdo ->prepare('DELETE FROM cidade WHERE cidId = :cidId');
+            $stmt->bindParam(':cidId', $cidId);
+            
+            return $stmt->execute();
+        }
        
 }
 
