@@ -27,6 +27,16 @@
             
         }
 
+        public function editar($cidId){
+            $pdo = Conexao::getInstance();
+            $stmt = $pdo->prepare('UPDATE cidade SET cidNome = :cidNome, estado_estId = :estado_estId WHERE cidId = :cidId');
+            $stmt->bindParam(':cidId', $this->cidId, PDO::PARAM_INT);
+            $stmt->bindParam(':cidNome', $this->cidNome, PDO::PARAM_STR);
+            $stmt->bindParam(':estado_estId', $this->estado_estId, PDO::PARAM_STR);
+            return $stmt->execute();
+        }
+
+       
         function excluir($cidId){
             $pdo = Conexao::getInstance();
             $stmt = $pdo ->prepare('DELETE FROM cidade WHERE cidId = :cidId');

@@ -96,7 +96,7 @@
 
         else if($busca == 3){
             $consulta = $pdo->query("SELECT * FROM estado, cidade 
-                                WHERE estado.estId LIKE '$procurar%'
+                                WHERE estado.estNome LIKE '$procurar%'
                                 AND estado.estId = cidade.estado_estId
                                 ORDER BY estado.estId");}
 

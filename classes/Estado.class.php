@@ -28,6 +28,15 @@
             
         }
         
+        public function editar($estId){
+                $pdo = Conexao::getInstance();
+                $stmt = $pdo->prepare('UPDATE estado SET estNome = :estNome, estSigla = :estSigla WHERE estId = :estId');
+                $stmt->bindParam(':estId', $this->estId, PDO::PARAM_INT);
+                $stmt->bindParam(':estNome', $this->estNome, PDO::PARAM_STR);
+                $stmt->bindParam(':estSigla', $this->estSigla, PDO::PARAM_STR);
+                return $stmt->execute();
+            }
+
 
         function excluir($estId){
             $pdo = Conexao::getInstance();

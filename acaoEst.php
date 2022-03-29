@@ -14,7 +14,6 @@
     }
     
 
-   
     $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
     if ($acao == "salvar"){
         $estId = isset($_POST['estId']) ? $_POST['estId'] : "";
@@ -27,27 +26,14 @@
             header("location:indexEst.php");
         }
         else
-            editar($estId);
+            require_once ("classes/Estado.class.php");
+            
+            $estado = new Estado($_POST['estId'], $_POST['estNome'], $_POST['estSigla']);
+            $resultado = $estado->editar($estId);
+            header("location:indexEst.php");        
+            //editar($estId);
     }
 
-//Editar dados
-    function editar($estId){
-        $dados = dadosForm();
-        $pdo = Conexao::getInstance();
-        $stmt = $pdo->prepare('UPDATE estado SET estNome = :estNome, estSigla = :estSigla WHERE estId = :estId');
-
-        $stmt->bindParam(':estId', $estId, PDO::PARAM_INT);
-        $estId = $_POST['estId'];
-
-        $stmt->bindParam(':estNome', $estNome, PDO::PARAM_STR);
-        $estNome = $_POST['estNome'];
-
-        $stmt->bindParam(':estSigla', $estSigla, PDO::PARAM_STR);
-        $estSigla = $_POST['estSigla'];
-
-        $stmt->execute();
-        header("location:indexEst.php");
-    }
     
 
 //Consultar dados
