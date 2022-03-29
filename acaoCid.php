@@ -36,27 +36,8 @@
         $cidade = new Cidade($_POST['cidId'], $_POST['cidNome'], $_POST['estado_estId']);
         $resultado = $cidade->editar($cidId);
         header("location:indexCid.php");        
-        //editar($estId);
 }
 
-//Editar dados
-    // function editar($cidId){
-    //     $dados = dadosForm();
-    //     $pdo = Conexao::getInstance();
-    //     $stmt = $pdo->prepare('UPDATE cidade SET cidNome = :cidNome, estado_estId = :estado_estId WHERE cidId = :cidId');
-
-    //     $stmt->bindParam(':cidId', $cidId, PDO::PARAM_INT);
-    //     $cidId = $_POST['cidId'];
-
-    //     $stmt->bindParam(':cidNome', $cidNome, PDO::PARAM_STR);
-    //     $cidNome = $_POST['cidNome'];
-
-    //     $stmt->bindParam(':estado_estId', $estado_estId, PDO::PARAM_STR);
-    //     $estado_estId = $_POST['estado_estId'];
-
-    //     $stmt->execute();
-    //     header("location:indexCid.php");
-    // }
 
 
 //Consultar dados

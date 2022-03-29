@@ -31,7 +31,6 @@
             $estado = new Estado($_POST['estId'], $_POST['estNome'], $_POST['estSigla']);
             $resultado = $estado->editar($estId);
             header("location:indexEst.php");        
-            //editar($estId);
     }
 
     
